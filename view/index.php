@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../view/assets/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         }
     }
     ?>
-    <form action="cek_login.php" method="post">
+    <form action="../cek_login.php" method="post">
         <div class="mb-3">
             <label for="exampleInputusername1" class="form-label">username</label>
             <input type="username" class="form-control" id="exampleInputusername1" aria-describedby="usernameHelp" name="username">
@@ -35,8 +35,8 @@
     </form>
 </body>
 <footer>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
 </footer>
 
 </html>
