@@ -35,7 +35,8 @@
   </tbody>
 </table>
 </body>
-<foot>
-  <script></script>
-  </foot>
+<footer>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+</footer>
 </html>
