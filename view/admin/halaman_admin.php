@@ -13,7 +13,7 @@
 
     <head>
         <title>Halaman admin</title>
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
     </head>
 
     <body>
@@ -29,7 +29,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Outlet</a>
+                            <a class="nav-link" href="outlet.php">Outlet</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Paket</a>

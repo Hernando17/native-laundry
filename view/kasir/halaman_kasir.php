@@ -13,7 +13,7 @@
 
     <head>
         <title>Halaman Kasir</title>
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
     </head>
 
     <body>
