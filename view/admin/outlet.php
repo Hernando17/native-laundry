@@ -15,47 +15,48 @@ $index = 1;
     <title>Laundry | Data Outlet</title>
     <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">Laundry</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="outlet.php">Outlet</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Paket</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Pengguna</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Transaksi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Laporan</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Laundry</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="outlet.php">Outlet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Paket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Pengguna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Transaksi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Laporan</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container" style="margin:50px auto; width:80%;">
         <table class="table">
-            <a href="#" class="btn btn-success mb-3">+</a>
+            <a href="createoutlet.php" class="btn btn-success mb-3">+</a>
             <thead>
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Nama </th>
                     <th scope="col">Alamat</th>
                     <th scope="col">Telepon</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -68,6 +69,10 @@ $index = 1;
                             <td><?= $data->nama ?></td>
                             <td><?= $data->alamat ?></td>
                             <td><?= $data->telepon ?></td>
+                            <td>
+                                <a href="#" class="btn btn-primary">Ubah</a>
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </td>
                         </tr>
                     <?php endforeach;
                 } else { ?>
