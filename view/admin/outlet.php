@@ -47,34 +47,37 @@ $index = 1;
 </nav>
 
 <body>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nama </th>
-                <th scope="col">Alamat</th>
-                <th scope="col">Telepon</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $result = $model->tampil();
-            if (!empty($result)) {
-                foreach ($result as $data) : ?>
-                    <tr>
-                        <th scope="row"><?= $index++ ?></th>
-                        <td><?= $data->nama ?></td>
-                        <td><?= $data->alamat ?></td>
-                        <td><?= $data->telepon ?></td>
+    <div class="container" style="margin:50px auto; width:80%;">
+        <table class="table">
+            <a href="#" class="btn btn-success mb-3">+</a>
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nama </th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Telepon</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $result = $model->tampil();
+                if (!empty($result)) {
+                    foreach ($result as $data) : ?>
+                        <tr>
+                            <th scope="row"><?= $index++ ?></th>
+                            <td><?= $data->nama ?></td>
+                            <td><?= $data->alamat ?></td>
+                            <td><?= $data->telepon ?></td>
+                        </tr>
+                    <?php endforeach;
+                } else { ?>
                     </tr>
-                <?php endforeach;
-            } else { ?>
-                </tr>
-                <td colspan="9">Belum ada data pada tabel outlet</td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+                    <td colspan="9">Belum ada data pada tabel outlet</td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
