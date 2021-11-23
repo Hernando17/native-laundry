@@ -10,29 +10,38 @@
 </head>
 
 <body>
-    <?php
-    if (isset($_GET['pesan'])) {
-        if ($_GET['pesan'] == "gagal") {
-            echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
-        }
-    }
-    ?>
-    <form action="../cek_login.php" method="post">
-        <div class="mb-3">
-            <label for="exampleInputusername1" class="form-label">username</label>
-            <input type="username" class="form-control" id="exampleInputusername1" aria-describedby="usernameHelp" name="username">
-            <div id="usernameHelp" class="form-text">We'll never share your username with anyone else.</div>
+    <div class="container col-4" style="margin-top:100px;">
+        <h2 class="text-center mb-5">Login Laundry</h2>
+        <div class="card" style="
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius:10px;
+        ">
+            <div class="card-body">
+                <?php
+                if (isset($_GET['pesan'])) {
+                    if ($_GET['pesan'] == "gagal") {
+                        echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
+                    }
+                }
+                ?>
+                <form action="../cek_login.php" method="post" class="col-10" style="margin:30px;">
+                    <div class="mb-3">
+                        <label for="exampleInputusername1" class="form-label">Nama Pengguna</label>
+                        <input type="username" class="form-control" id="exampleInputusername1" aria-describedby="usernameHelp" name="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Masuk</button>
+                </form>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </body>
 <footer>
     <script src="../assets/js/popper.min.js"></script>

@@ -47,10 +47,21 @@
                 </div>
             </div>
         </nav>
-        <h1>Halaman Admin</h1>
+        <div class="card" style="
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius:10px;
+        margin:50px auto;
+        width:50%;
+        padding:50px;
+        ">
+            <div class="card-body">
+                <h1>Halaman Admin</h1>
 
-        <p>Halo <b><?php echo $_SESSION['username']; ?></b> Anda telah login sebagai <b><?php echo $_SESSION['role']; ?></b>.</p>
-        <a href="../logout.php">LOGOUT</a>
+                <p>Halo <b><?php echo $_SESSION['username']; ?></b> Anda telah login sebagai <b><?php echo $_SESSION['role']; ?></b>.</p>
+                <a href="../logout.php" class="btn btn-primary">Keluar</a>
+
+            </div>
+        </div>
 
     </body>
 
