@@ -71,7 +71,7 @@ $index = 1;
                             <td><?= $data->telepon ?></td>
                             <td>
                                 <a href="#" class="btn btn-primary">Ubah</a>
-                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <a href="../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                     <?php endforeach;

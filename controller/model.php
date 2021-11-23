@@ -24,4 +24,10 @@ class Model extends Connection
         $sql = "INSERT INTO outlet (nama, alamat, telepon) VALUES ('$nama', '$alamat', '$telepon')";
         $this->conn->query($sql);
     }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM outlet WHERE id='$id'";
+        $this->conn->query($sql);
+    }
 }
