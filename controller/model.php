@@ -21,7 +21,6 @@ class Model extends Connection
 
     public function insert($nama, $alamat, $telepon)
     {
-        $data = $this->data($nama, $alamat, $telepon);
         $sql = "INSERT INTO outlet (nama, alamat, telepon) VALUES ('$nama', '$alamat', '$telepon')";
         $this->conn->query($sql);
     }

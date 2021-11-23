@@ -6,5 +6,5 @@ if (isset($_POST['submit'])) {
     $telepon = $_POST['telepon'];
     $model = new Model();
     $model->insert($nama, $alamat, $telepon);
-    header('location:outlet.php');
+    header('location:../view/outlet.php');
 }
