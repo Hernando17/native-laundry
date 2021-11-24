@@ -57,7 +57,7 @@ $index = 1;
                 <a href="createoutlet.php" class="btn btn-success mt-3" style="margin-left:10px;">+</a>
                 <div class="card" style="
         border-radius:10px;
-        margin:30px auto;
+        margin:20px auto;
         width:98%;
         ">
                     <table class="table" style="
@@ -85,7 +85,7 @@ $index = 1;
                                         <td><?= $data->alamat ?></td>
                                         <td><?= $data->telepon ?></td>
                                         <td>
-                                            <a href="#" class="btn btn-primary">Ubah</a>
+                                            <a href="../../view/admin/editoutlet.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
                                             <a href="../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger">Hapus</a>
                                         </td>
                                     </tr>
