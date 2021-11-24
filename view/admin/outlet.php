@@ -86,7 +86,7 @@ $index = 1;
                                         <td><?= $data->telepon ?></td>
                                         <td>
                                             <a href="../../view/admin/editoutlet.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
-                                            <a href="../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger">Hapus</a>
+                                            <a href="../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach;
