@@ -1,4 +1,10 @@
     <?php
+    session_start();
+
+    // cek apakah yang mengakses halaman ini sudah login
+    if ($_SESSION['role'] != "admin") {
+        header("location:index.php?pesan=gagal");
+    }
     $id = $_GET['id'];
     require '../../connection.php';
     include '../../controller/model.php';
