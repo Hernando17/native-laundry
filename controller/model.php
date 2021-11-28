@@ -46,4 +46,28 @@ class Model extends Connection
         $sql = "DELETE FROM outlet WHERE id='$id'";
         $this->conn->query($sql);
     }
+
+    public function paket()
+    {
+        $sql = "SELECT * FROM paket";
+        $bind = $this->conn->query($sql);
+        while ($obj = $bind->fetch_object()) {
+            $baris[] = $obj;
+        }
+        if (!empty($baris)) {
+            return $baris;
+        }
+    }
+
+    public function insert_paket($id_outlet, $jenis, $nama_paket, $harga)
+    {
+        $sql = "INSERT INTO paket (id_outlet, jenis, nama_paket, harga) VALUES ('$id_outlet', '$jenis', '$nama_paket', '$harga')";
+        $this->conn->query($sql);
+    }
+
+    public function delete_paket($id)
+    {
+        $sql = "DELETE FROM paket WHERE id='$id'";
+        $this->conn->query($sql);
+    }
 }

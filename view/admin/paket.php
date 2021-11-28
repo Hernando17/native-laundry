@@ -18,7 +18,7 @@ $index = 1;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laundry | Data Outlet</title>
+    <title>Laundry | Data Paket</title>
     <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
 </head>
 
@@ -60,7 +60,7 @@ $index = 1;
         margin:30px auto;
         ">
             <div class="container">
-                <a href="createoutlet.php" class="btn btn-success mt-3" style="margin-left:10px;">+</a>
+                <a href="createpaket.php" class="btn btn-success mt-3" style="margin-left:10px;">+</a>
                 <div class="card" style="
         border-radius:10px;
         margin:20px auto;
@@ -74,22 +74,24 @@ $index = 1;
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Nama </th>
-                                <th scope="col">Alamat</th>
-                                <th scope="col">Telepon</th>
+                                <th scope="col">ID Outlet </th>
+                                <th scope="col">Jenis</th>
+                                <th scope="col">Nama Paket</th>
+                                <th scope="col">Harga</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $result = $model->tampil();
+                            $result = $model->paket();
                             if (!empty($result)) {
                                 foreach ($result as $data) : ?>
                                     <tr>
                                         <th scope="row"><?= $index++ ?></th>
-                                        <td><?= $data->nama ?></td>
-                                        <td><?= $data->alamat ?></td>
-                                        <td><?= $data->telepon ?></td>
+                                        <td><?= $data->id_outlet ?></td>
+                                        <td><?= $data->jenis ?></td>
+                                        <td><?= $data->nama_paket ?></td>
+                                        <td><?= $data->harga ?></td>
                                         <td>
                                             <a href="../../view/admin/editoutlet.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
                                             <a href="../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
