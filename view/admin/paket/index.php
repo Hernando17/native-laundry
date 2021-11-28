@@ -5,8 +5,8 @@ session_start();
 if ($_SESSION['role'] != "admin") {
     header("location:index.php?pesan=gagal");
 }
-require '../../connection.php';
-include '../../controller/model.php';
+require '../../../connection.php';
+include '../../../controller/model.php';
 $model = new Model();
 $index = 1;
 ?>
@@ -19,7 +19,7 @@ $index = 1;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry | Data Paket</title>
-    <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../public/assets/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -32,13 +32,13 @@ $index = 1;
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="halaman_admin.php">Beranda</a>
+                        <a class="nav-link active" aria-current="page" href="../halaman_admin.php">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="outlet.php">Outlet</a>
+                        <a class="nav-link" href="../outlet/index.php">Outlet</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="paket.php">Paket</a>
+                        <a class="nav-link" href="../paket/index.php">Paket</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled">Pengguna</a>
@@ -93,8 +93,8 @@ $index = 1;
                                         <td><?= $data->nama_paket ?></td>
                                         <td><?= $data->harga ?></td>
                                         <td>
-                                            <a href="../../view/admin/editoutlet.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
-                                            <a href="../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
+                                            <a href="../../../view/admin/paket/editpaket.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
+                                            <a href="../../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach;

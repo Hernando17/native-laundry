@@ -5,14 +5,19 @@
     if ($_SESSION['role'] != "admin") {
         header("location:index.php?pesan=gagal");
     }
-
+    $id = $_GET['id'];
+    require '../../../connection.php';
+    include '../../../controller/model.php';
+    $model = new Model();
+    $data = $model->edit($id);
     ?>
+
     <!DOCTYPE html>
     <html>
 
     <head>
         <title>Halaman admin</title>
-        <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../public/assets/css/bootstrap.min.css">
     </head>
 
     <body>
@@ -28,10 +33,10 @@
                             <a class="nav-link active" aria-current="page" href="halaman_admin.php">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="outlet.php">Outlet</a>
+                            <a class="nav-link" href="../outlet/index.php">Outlet</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Paket</a>
+                            <a class="nav-link" href="../paket/index.php">Paket</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled">Pengguna</a>
@@ -57,21 +62,25 @@
         ">
                 <div class="card-body">
                     <h2>Form tambah data outlet</h2>
-                    <form action="../../controller/process.php" method="post" class="mt-5">
+                    <form action="../../../controller/process.php" method="post" class="mt-5">
+                        <div class="mb-3">
+                            <label for="id" class="form-label">ID Outlet</label>
+                            <input type="text" class="form-control" id="id" name="id" value="<?php echo $data->id ?>" style="width:30%;" readonly>
+                        </div>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Outlet</label>
-                            <input type="text" class="form-control" id="nama" name="nama">
+                            <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $data->nama ?>">
                         </div>
                         <div class="mb-3">
                             <label for="alamat" class="form-label">Alamat Outlet</label>
-                            <input type="text" class="form-control" id="alamat" name="alamat">
+                            <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $data->alamat ?>">
                         </div>
                         <div class="mb-3">
                             <label for="telepon" class="form-label">Telepon Outlet</label>
-                            <input type="text" class="form-control" id="telepon" name="telepon">
+                            <input type="text" class="form-control" id="telepon" name="telepon" value="<?php echo $data->telepon ?>">
                         </div>
-                        <a href="outlet.php" class="btn btn-primary">Kembali</a>
-                        <button type="submit" class="btn btn-success" name="submit">Selesai</button>
+                        <a href="../outlet/index.php" class="btn btn-primary">Kembali</a>
+                        <button type="submit" class="btn btn-success" name="submit_edit">Selesai</button>
                     </form>
                 </div>
             </div>

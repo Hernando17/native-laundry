@@ -70,4 +70,20 @@ class Model extends Connection
         $sql = "DELETE FROM paket WHERE id='$id'";
         $this->conn->query($sql);
     }
+
+    public function edit_paket($id)
+    {
+        $sql = "SELECT * FROM paket WHERE id='$id'";
+        $bind = $this->conn->query($sql);
+        while ($obj = $bind->fetch_object()) {
+            $baris = $obj;
+        }
+        return $baris;
+    }
+
+    public function update_paket($id, $id_outlet, $jenis, $nama_paket, $harga)
+    {
+        $sql = "UPDATE paket SET id_outlet='$id_outlet', jenis='$jenis', nama_paket='$nama_paket', harga='$harga' WHERE id='$id'";
+        $this->conn->query($sql);
+    }
 }

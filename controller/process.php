@@ -9,14 +9,7 @@ if (isset($_POST['submit'])) {
     $telepon = $_POST['telepon'];
     $model = new Model();
     $model->insert($nama, $alamat, $telepon);
-    header('location:../view/admin/outlet.php');
-}
-
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $model = new Model();
-    $model->delete($id);
-    header('location:../view/admin/outlet.php');
+    header('location:../view/admin/outlet/index.php');
 }
 
 if (isset($_POST['submit_edit'])) {
@@ -26,7 +19,14 @@ if (isset($_POST['submit_edit'])) {
     $telepon = $_POST['telepon'];
     $model = new Model();
     $model->update($id, $nama, $alamat, $telepon);
-    header('location:../view/admin/outlet.php');
+    header('location:../view/admin/outlet/index.php');
+}
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $model = new Model();
+    $model->delete($id);
+    header('location:../view/admin/outlet/index.php');
 }
 
 // Paket
@@ -37,14 +37,7 @@ if (isset($_POST['submit_paket'])) {
     $harga = $_POST['harga'];
     $model = new Model();
     $model->insert_paket($id_outlet, $jenis, $nama_paket, $harga);
-    header('location:../view/admin/paket.php');
-}
-
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $model = new Model();
-    $model->delete_paket($id);
-    header('location:../view/admin/paket.php');
+    header('location:../view/admin/paket/index.php');
 }
 
 if (isset($_POST['submit_editpaket'])) {
@@ -54,6 +47,13 @@ if (isset($_POST['submit_editpaket'])) {
     $nama_paket = $_POST['nama_paket'];
     $harga = $_POST['harga'];
     $model = new Model();
-    $model->update($id, $id_outlet, $jenis, $nama_paket, $harga);
-    header('location:../view/admin/paket.php');
+    $model->update_paket($id, $id_outlet, $jenis, $nama_paket, $harga);
+    header('location:../view/admin/paket/index.php');
+}
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $model = new Model();
+    $model->delete_paket($id);
+    header('location:../view/admin/paket/index.php');
 }
