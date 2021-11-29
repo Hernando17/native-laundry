@@ -86,4 +86,20 @@ class Model extends Connection
         $sql = "UPDATE paket SET id_outlet='$id_outlet', jenis='$jenis', nama_paket='$nama_paket', harga='$harga' WHERE id='$id'";
         $this->conn->query($sql);
     }
+
+    public function pengguna()
+    {
+        $sql = "SELECT * FROM user";
+        $bind = $this->conn->query($sql);
+        while ($obj = $bind->fetch_object()) {
+            $baris[] = $obj;
+        }
+        return $baris;
+    }
+
+    public function insert_pengguna($nama, $username, $password, $role, $id_outlet)
+    {
+        $sql = "INSERT INTO user (nama, username, password, role, id_outlet) VALUES ('$nama', '$username', '$password', '$role', '$id_outlet')";
+        $bind = $this->conn->query($sql);
+    }
 }

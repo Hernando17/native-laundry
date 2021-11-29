@@ -57,3 +57,15 @@ if (isset($_GET['id'])) {
     $model->delete_paket($id);
     header('location:../view/admin/paket/index.php');
 }
+
+// Pengguna
+if (isset($_POST['submit_pengguna'])) {
+    $nama = $_POST['nama'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
+    $id_outlet = $_POST['id_outlet'];
+    $model = new Model();
+    $model->insert_pengguna($nama, $username, $password, $role, $id_outlet);
+    header('location:../view/admin/pengguna/index.php');
+}
