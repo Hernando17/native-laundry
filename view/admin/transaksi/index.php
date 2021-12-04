@@ -60,7 +60,7 @@ $index = 1;
         margin:30px auto;
         ">
             <div class="container">
-                <a href="createpaket.php" class="btn btn-success mt-3" style="margin-left:10px;">+</a>
+                <a href="createtransaksi.php" class="btn btn-success mt-3" style="margin-left:10px;">+</a>
                 <div class="card" style="
         border-radius:10px;
         margin:20px auto;
@@ -93,7 +93,7 @@ $index = 1;
                                         <td><?= $data->batas_waktu ?></td>
                                         <td><?= $data->tanggal_bayar ?></td>
                                         <td>
-                                            <a href="../../../view/admin/paket/editpaket.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
+                                            <a href="../../../view/admin/transaksi/edittransaksi.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
                                             <a href="../../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                                         </td>
                                     </tr>

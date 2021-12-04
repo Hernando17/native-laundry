@@ -106,3 +106,48 @@ if (isset($_GET['id'])) {
     $model->delete_member($id);
     header('location:../view/admin/member/index.php');
 }
+
+// Transaksi
+if (isset($_POST['submit_transaksi'])) {
+    $id_outlet = $_POST['id_outlet'];
+    $kode_invoice = $_POST['kode_invoice'];
+    $id_member = $_POST['id_member'];
+    $tanggal = $_POST['tanggal'];
+    $batas_waktu = $_POST['batas_waktu'];
+    $tanggal_bayar = $_POST['tanggal_bayar'];
+    $biaya_tambahan = $_POST['biaya_tambahan'];
+    $diskon = $_POST['diskon'];
+    $pajak = $_POST['pajak'];
+    $status = $_POST['status'];
+    $dibayar = $_POST['dibayar'];
+    $id_user = $_POST['id_user'];
+    $model = new Model();
+    $model->insert_transaksi($id_outlet, $kode_invoice, $id_member, $tanggal, $batas_waktu, $tanggal_bayar, $biaya_tambahan, $diskon, $pajak, $status, $dibayar, $id_user);
+    header('location:../view/admin/transaksi/index.php');
+}
+
+if (isset($_POST['submit_edittransaksi'])) {
+    $id = $_POST['id'];
+    $id_outlet = $_POST['id_outlet'];
+    $kode_invoice = $_POST['kode_invoice'];
+    $id_member = $_POST['id_member'];
+    $tanggal = $_POST['tanggal'];
+    $batas_waktu = $_POST['batas_waktu'];
+    $tanggal_bayar = $_POST['tanggal_bayar'];
+    $biaya_tambahan = $_POST['biaya_tambahan'];
+    $diskon = $_POST['diskon'];
+    $pajak = $_POST['pajak'];
+    $status = $_POST['status'];
+    $dibayar = $_POST['dibayar'];
+    $id_user = $_POST['id_user'];
+    $model = new Model();
+    $model->update_transaksi($id, $id_outlet, $kode_invoice, $id_member, $tanggal, $batas_waktu, $tanggal_bayar, $biaya_tambahan, $diskon, $pajak, $status, $dibayar, $id_user);
+    header('location:../view/admin/transaksi/index.php');
+}
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $model = new Model();
+    $model->delete_transaksi($id);
+    header('location:../view/admin/transaksi/index.php');
+}
