@@ -44,7 +44,7 @@
                             <a class="nav-link" href="transaksi/index.php">Transaksi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Laporan</a>
+                            <a class="nav-link" href="laporan/index.php">Laporan</a>
                         </li>
                     </ul>
                 </div>

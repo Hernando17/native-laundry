@@ -151,3 +151,21 @@ if (isset($_GET['id'])) {
     $model->delete_transaksi($id);
     header('location:../view/admin/transaksi/index.php');
 }
+
+// Laporan
+if (isset($_POST['submit_laporan'])) {
+    $id_transaksi = $_POST['id_transaksi'];
+    $id_paket = $_POST['id_paket'];
+    $qty = $_POST['qty'];
+    $keterangan = $_POST['keterangan'];
+    $model = new Model();
+    $model->insert_laporan($id_transaksi, $id_paket, $qty, $keterangan);
+    header('location:../view/admin/laporan/index.php');
+}
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $model = new Model();
+    $model->delete_laporan($id);
+    header('location:../view/admin/laporan/index.php');
+}

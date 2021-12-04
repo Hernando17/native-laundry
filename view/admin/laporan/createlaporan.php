@@ -64,25 +64,13 @@
         padding:50px;
         ">
                 <div class="card-body">
-                    <h2>Form tambah data pengguna</h2>
+                    <h2>Form tambah data laporan</h2>
                     <form action="../../../controller/process.php" method="post" class="mt-5">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                        </div>
-                        <div class="mb-3">
-                            <label for="id_outlet" class="form-label">ID Outlet</label>
-                            <select id="id_outlet" class="form-select" name="id_outlet">
+                            <label for="id_transaksi" class="form-label">ID Transaksi</label>
+                            <select id="id_transaksi" class="form-select" name="id_transaksi">
                                 <?php
-                                $result = $model->tampil();
+                                $result = $model->transaksi();
                                 foreach ($result as $data) : ?>
                                     <option><?= $data->id; ?></option>
                                 <?php endforeach;
@@ -90,16 +78,27 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="role" class="form-label">Role</label>
-                            <select id="role" class="form-select" name="role">
-                                <option>admin</option>
-                                <option>kasir</option>
-                                <option>owner</option>
+                            <label for="id_paket" class="form-label">ID Paket</label>
+                            <select id="id_paket" class="form-select" name="id_paket">
+                                <?php
+                                $result = $model->paket();
+                                foreach ($result as $data) : ?>
+                                    <option><?= $data->id; ?></option>
+                                <?php endforeach;
+                                ?>
                             </select>
                         </div>
 
-                        <a href="index.php" class="btn btn-primary">Kembali</a>
-                        <button type="submit_pengguna" class="btn btn-success" name="submit_pengguna">Selesai</button>
+                        <div class="mb-3">
+                            <label for="qty" class="form-label">Qty</label>
+                            <input type="text" class="form-control" id="qty" name="qty">
+                        </div>
+                        <div class="mb-3">
+                            <label for="keterangan" class="form-label">Keterangan</label>
+                            <input type="text" class="form-control" id="keterangan" name="keterangan">
+                        </div>
+                        <a href="paket.php" class="btn btn-primary">Kembali</a>
+                        <button type="submit_laporan" class="btn btn-success" name="submit_laporan">Selesai</button>
                     </form>
                 </div>
             </div>

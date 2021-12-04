@@ -29,22 +29,25 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="halaman_admin.php">Beranda</a>
+                            <a class="nav-link active" aria-current="page" href="../../../view/admin/halaman_admin.php">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="outlet.php">Outlet</a>
+                            <a class="nav-link" href="../outlet/index.php">Outlet</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Paket</a>
+                            <a class="nav-link" href="../paket/index.php">Paket</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Pengguna</a>
+                            <a class="nav-link" href="../pengguna/index.php">Pengguna</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Transaksi</a>
+                            <a class="nav-link" href="../member/index.php">Pelanggan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Laporan</a>
+                            <a class="nav-link" href="../transaksi/index.php">Transaksi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../laporan/index.php">Laporan</a>
                         </li>
                     </ul>
                 </div>
@@ -75,7 +78,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="kode_invoice" class="form-label">Kode Invoice</label>
-                            <input type="text" class="form-control" id="kode_invoice" name="kode_invoice" value="LN<?= $data->id ?>" readonly>
+                            <input type="text" class="form-control" id="kode_invoice" name="kode_invoice">
                         </div>
                         <div class="mb-3">
                             <label for="id_member" class="form-label">ID Member</label>

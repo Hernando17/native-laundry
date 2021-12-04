@@ -163,7 +163,7 @@ class Model extends Connection
 
     public function insert_transaksi($id_outlet, $kode_invoice, $id_member, $tanggal, $batas_waktu, $tanggal_bayar, $biaya_tambahan, $diskon, $pajak, $status, $dibayar, $id_user)
     {
-        $sql = "INSERT INTO transaksi (id_outlet, kode_invoice, id_member, tanggal, batas_waktu, tanggal_bayar, biaya_tambahan, diskon, pajak, status, dibayar, id_user) VALUES ('$id_outlet', '$kode_invoice', '$id_member', '$tanggal', '$batas_waktu', '$tanggal_bayar', '$biaya_tambahan', '$diskon', '$pajak', '$status', '$dibayar', '$id_user')";
+        $sql = "INSERT INTO transaksi (id_outlet, kode_invoice, id_member, tanggal, batas_waktu, tanggal_bayar, biaya_tambahan, diskon, pajak, status, dibayar, id_user) VALUES ('$id_outlet', 'LN$kode_invoice', '$id_member', '$tanggal', '$batas_waktu', '$tanggal_bayar', '$biaya_tambahan', '$diskon', '$pajak', '$status', '$dibayar', '$id_user')";
         $bind = $this->conn->query($sql);
     }
 
@@ -179,7 +179,7 @@ class Model extends Connection
 
     public function update_transaksi($id, $id_outlet, $kode_invoice, $id_member, $tanggal, $batas_waktu, $tanggal_bayar, $biaya_tambahan, $diskon, $pajak, $status, $dibayar, $id_user)
     {
-        $sql = "UPDATE transaksi SET id_outlet='$id_outlet', kode_invoice='$kode_invoice', id_member='$id_member', tanggal='$tanggal', batas_waktu='$batas_waktu', tanggal_bayar='$tanggal_bayar', biaya_tambahan='$biaya_tambahan', diskon='$diskon', pajak='$pajak', status='$status', dibayar='$dibayar', id_user='$id_user' WHERE id='$id'";
+        $sql = "UPDATE transaksi SET id_outlet='$id_outlet', kode_invoice='LN$kode_invoice', id_member='$id_member', tanggal='$tanggal', batas_waktu='$batas_waktu', tanggal_bayar='$tanggal_bayar', biaya_tambahan='$biaya_tambahan', diskon='$diskon', pajak='$pajak', status='$status', dibayar='$dibayar', id_user='$id_user' WHERE id='$id'";
         $this->conn->query($sql);
     }
 
@@ -187,5 +187,39 @@ class Model extends Connection
     {
         $sql = "DELETE FROM transaksi WHERE id='$id'";
         $bind = $this->conn->query($sql);
+    }
+
+    public function laporan()
+    {
+        $sql = "SELECT * FROM detail_transaksi";
+        $bind = $this->conn->query($sql);
+        while ($obj = $bind->fetch_object()) {
+            $baris[] = $obj;
+        }
+        if (!empty($baris)) {
+            return $baris;
+        }
+    }
+
+    public function insert_laporan($id_transaksi, $id_paket, $qty, $keterangan)
+    {
+        $sql = "INSERT INTO detail_transaksi (id_transaksi, id_paket, qty, keterangan) VALUES ('$id_transaksi', '$id_paket', '$qty', '$keterangan')";
+        $bind = $this->conn->query($sql);
+    }
+
+    public function delete_laporan($id)
+    {
+        $sql = "DELETE FROM detail_transaksi WHERE id='$id'";
+        $bind = $this->conn->query($sql);
+    }
+
+    public function printlaporan($id)
+    {
+        $sql = "SELECT * FROM detail_transaksi WHERE id='$id'";
+        $bind = $this->conn->query($sql);
+        while ($obj = $bind->fetch_object()) {
+            $baris = $obj;
+        }
+        return $baris;
     }
 }
