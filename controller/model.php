@@ -102,4 +102,20 @@ class Model extends Connection
         $sql = "INSERT INTO user (nama, username, password, role, id_outlet) VALUES ('$nama', '$username', '$password', '$role', '$id_outlet')";
         $bind = $this->conn->query($sql);
     }
+
+    public function edit_pengguna($id)
+    {
+        $sql = "SELECT * FROM user WHERE id='$id'";
+        $bind = $this->conn->query($sql);
+        while ($obj = $bind->fetch_object()) {
+            $baris = $obj;
+        }
+        return $baris;
+    }
+
+    public function update_pengguna($id, $nama, $username, $password, $role, $id_outlet)
+    {
+        $sql = "UPDATE user SET nama='$nama', username='$username', password='$password', role='$role', id_outlet='$id_outlet' WHERE id='$id'";
+        $this->conn->query($sql);
+    }
 }

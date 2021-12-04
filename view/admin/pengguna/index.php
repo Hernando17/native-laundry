@@ -93,7 +93,7 @@ $index = 1;
                                         <td><?= $data->id_outlet ?></td>
                                         <td><?= $data->role ?></td>
                                         <td>
-                                            <a href="../../../view/admin/paket/editpaket.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
+                                            <a href="../../../view/admin/pengguna/editpengguna.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
                                             <a href="../../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                                         </td>
                                     </tr>

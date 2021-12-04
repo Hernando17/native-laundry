@@ -69,3 +69,15 @@ if (isset($_POST['submit_pengguna'])) {
     $model->insert_pengguna($nama, $username, $password, $role, $id_outlet);
     header('location:../view/admin/pengguna/index.php');
 }
+
+if (isset($_POST['submit_editpengguna'])) {
+    $id = $_POST['id'];
+    $nama = $_POST['nama'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
+    $id_outlet = $_POST['id_outlet'];
+    $model = new Model();
+    $model->update_pengguna($id, $nama, $username, $password, $role, $id_outlet);
+    header('location:../view/admin/pengguna/index.php');
+}
