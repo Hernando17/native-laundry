@@ -81,3 +81,28 @@ if (isset($_POST['submit_editpengguna'])) {
     $model->update_pengguna($id, $nama, $username, $password, $role, $id_outlet);
     header('location:../view/admin/pengguna/index.php');
 }
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $model = new Model();
+    $model->delete_pengguna($id);
+    header('location:../view/admin/pengguna/index.php');
+}
+
+// Pelanggan
+if (isset($_POST['submit_member'])) {
+    $nama = $_POST['nama'];
+    $alamat = $_POST['alamat'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $telepon = $_POST['telepon'];
+    $model = new Model();
+    $model->insert_member($nama, $alamat, $jenis_kelamin, $telepon);
+    header('location:../view/admin/member/index.php');
+}
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $model = new Model();
+    $model->delete_member($id);
+    header('location:../view/admin/member/index.php');
+}

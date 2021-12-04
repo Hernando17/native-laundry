@@ -118,4 +118,52 @@ class Model extends Connection
         $sql = "UPDATE user SET nama='$nama', username='$username', password='$password', role='$role', id_outlet='$id_outlet' WHERE id='$id'";
         $this->conn->query($sql);
     }
+
+    public function delete_pengguna($id)
+    {
+        $sql = "DELETE FROM user WHERE id='$id'";
+        $bind = $this->conn->query($sql);
+    }
+
+    public function member()
+    {
+        $sql = "SELECT * FROM member";
+        $bind = $this->conn->query($sql);
+        while ($obj = $bind->fetch_object()) {
+            $baris[] = $obj;
+        }
+        if (!empty($baris)) {
+            return $baris;
+        }
+    }
+
+    public function insert_member($nama, $alamat, $jenis_kelamin, $telepon)
+    {
+        $sql = "INSERT INTO member (nama, alamat, jenis_kelamin, telepon) VALUES ('$nama', '$alamat', '$jenis_kelamin', '$telepon')";
+        $bind = $this->conn->query($sql);
+    }
+
+    public function delete_member($id)
+    {
+        $sql = "DELETE FROM member WHERE id='$id'";
+        $bind = $this->conn->query($sql);
+    }
+
+    public function transaksi()
+    {
+        $sql = "SELECT * FROM transaksi";
+        $bind = $this->conn->query($sql);
+        while ($obj = $bind->fetch_object()) {
+            $baris[] = $obj;
+        }
+        if (!empty($baris)) {
+            return $baris;
+        }
+    }
+
+    public function insert_transaksi($id_outlet, $kode_invoice, $id_member, $tanggal, $batas_waktu, $tanggal_bayar, $biaya_tambahan, $diskon, $pajak, $status, $dibayar, $id_user)
+    {
+        $sql = "INSERT INTO user (id_outlet, kode_invoice, id_member, tanggal, batas_waktu, tanggal_bayar, biaya_tambahan, diskon, pajak, status, dibayar, id_user) VALUES ('$id_outlet', '$kode_invoice', '$id_member', '$tanggal', '$batas_waktu', '$tanggal_bayar', '$biaya_tambahan', '$diskon', '$pajak', '$status', '$dibayar', '$id_user')";
+        $bind = $this->conn->query($sql);
+    }
 }

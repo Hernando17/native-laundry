@@ -38,7 +38,10 @@
                             <a class="nav-link" href="pengguna/index.php">Pengguna</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Transaksi</a>
+                            <a class="nav-link" href="member/index.php">Pelanggan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="transaksi/index.php">Transaksi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled">Laporan</a>
