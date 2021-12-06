@@ -78,11 +78,7 @@ $index = 1;
                                         <td><?= $data->id_paket ?></td>
                                         <td><?= $data->qty ?></td>
                                         <td>
-
                                             <a href="printlaporan.php?id=<?= $data->id ?>" class="btn btn-dark">Print</a>
-                                            <form action="../../../controller/process.php?id=<?= $data->id ?>" method="post" class="mt-5 d-inline">
-                                                <button type="submit_deletelaporan" class="btn btn-danger" name="submit_deletelaporan" onclick="return confirm('Apakah anda yakin?')">Hapus</button>
-                                            </form>
                                         </td>
                                     </tr>
                                 <?php endforeach;
