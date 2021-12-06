@@ -3,7 +3,7 @@
 session_start();
 
 // menghubungkan php dengan koneksi database
-include 'koneksi.php';
+include 'connection.php';
 
 // menangkap data yang dikirim dari form login
 $username = $_POST['username'];
@@ -27,7 +27,7 @@ if ($cek > 0) {
         $_SESSION['username'] = $username;
         $_SESSION['role'] = "admin";
         // alihkan ke halaman dashboard admin
-        header("location:halaman_admin.php");
+        header("location:view/admin/halaman_admin.php");
 
         // cek jika user login sebagai kasir
     } else if ($data['role'] == "kasir") {
@@ -35,7 +35,7 @@ if ($cek > 0) {
         $_SESSION['username'] = $username;
         $_SESSION['role'] = "kasir";
         // alihkan ke halaman dashboard kasir
-        header("location:halaman_kasir.php");
+        header("location:view/kasir/halaman_kasir.php");
 
         // cek jika user login sebagai owner
     } else if ($data['role'] == "owner") {
@@ -43,8 +43,8 @@ if ($cek > 0) {
         $_SESSION['username'] = $username;
         $_SESSION['role'] = "owner";
         // alihkan ke halaman dashboard owner
-        header("location:halaman_owner.php");
+        header("location:view/owner/halaman_owner.php");
     }
 } else {
-    header("location:index.php?pesan=gagal");
+    header("location:view/index.php?pesan=gagal");
 }
