@@ -11,7 +11,7 @@
 
 <body>
     <div class="container col-4" style="margin-top:100px;">
-        <h2 class="text-center mb-5">Login Laundry</h2>
+        <h2 class="text-center mb-5">Laundry | Login</h2>
         <div class="card" style="
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius:10px;
