@@ -2,7 +2,7 @@
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
-if ($_SESSION['role'] != "kasir") {
+if ($_SESSION['role'] != "owner") {
     header("location:index.php?pesan=gagal");
 }
 require '../../../connection.php';
@@ -32,13 +32,7 @@ $index = 1;
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../halaman_kasir.php">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../member/index.php">Pelanggan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../transaksi/index.php">Transaksi</a>
+                        <a class="nav-link active" aria-current="page" href="../halaman_owner.php">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../laporan/index.php">Laporan</a>

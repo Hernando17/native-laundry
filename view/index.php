@@ -33,11 +33,7 @@
                         <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Masuk</button>
+                    <button type="submit" class="btn btn-primary mt-3">Masuk</button>
                 </form>
             </div>
         </div>
