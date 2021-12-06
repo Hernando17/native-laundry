@@ -12,7 +12,7 @@
     <html>
 
     <head>
-        <title>Halaman Owner</title>
+        <title>Laundry | Halaman Owner</title>
         <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
     </head>
 

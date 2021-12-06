@@ -16,7 +16,7 @@
     <html>
 
     <head>
-        <title>Halaman admin</title>
+        <title>Laundry | Tambah Pelanggan</title>
         <link rel="stylesheet" href="../../../public/assets/css/bootstrap.min.css">
     </head>
 

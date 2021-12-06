@@ -18,7 +18,7 @@ $index = 1;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laundry | Data Paket</title>
+    <title>Laundry | Data Laporan</title>
     <link rel="stylesheet" href="../../../public/assets/css/bootstrap.min.css">
 </head>
 
@@ -48,16 +48,15 @@ $index = 1;
         margin:30px auto;
         ">
             <div class="container">
-                <a href="createlaporan.php" class="btn btn-success mt-3" style="margin-left:10px;">+</a>
                 <div class="card" style="
         border-radius:10px;
         margin:20px auto;
+        margin-top:50px;
         width:98%;
         ">
                     <table class="table" style="
             width:95%;
             margin:40px auto;
-
             ">
                         <thead>
                             <tr>
