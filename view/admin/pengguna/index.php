@@ -97,7 +97,9 @@ $index = 1;
                                         <td><?= $data->role ?></td>
                                         <td>
                                             <a href="../../../view/admin/pengguna/editpengguna.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
-                                            <a href="../../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
+                                            <form action="../../../controller/process.php?id=<?= $data->id ?>" method="post" class="mt-5 d-inline">
+                                                <button type="submit_deletepengguna" class="btn btn-danger" name="submit_deletepengguna" onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php endforeach;

@@ -2,7 +2,7 @@
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
-if ($_SESSION['role'] != "admin") {
+if ($_SESSION['role'] != "kasir") {
     header("location:index.php?pesan=gagal");
 }
 require '../../../connection.php';
@@ -18,7 +18,7 @@ $index = 1;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laundry | Data Paket</title>
+    <title>Laundry | Data Transaksi</title>
     <link rel="stylesheet" href="../../../public/assets/css/bootstrap.min.css">
 </head>
 
@@ -32,16 +32,7 @@ $index = 1;
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../../view/admin/halaman_admin.php">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../outlet/index.php">Outlet</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../paket/index.php">Paket</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../pengguna/index.php">Pengguna</a>
+                        <a class="nav-link active" aria-current="page" href="../halaman_kasir.php">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../member/index.php">Pelanggan</a>
@@ -63,7 +54,7 @@ $index = 1;
         margin:30px auto;
         ">
             <div class="container">
-                <a href="createlaporan.php" class="btn btn-success mt-3" style="margin-left:10px;">+</a>
+                <a href="createtransaksi.php" class="btn btn-success mt-3" style="margin-left:10px;">+</a>
                 <div class="card" style="
         border-radius:10px;
         margin:20px auto;
@@ -77,28 +68,27 @@ $index = 1;
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">ID Transaksi</th>
-                                <th scope="col">ID Paket</th>
-                                <th scope="col">Qty</th>
+                                <th scope="col">ID Outlet</th>
+                                <th scope="col">Kode Invoice</th>
+                                <th scope="col">Batas Waktu</th>
+                                <th scope="col">Tanggal Bayar</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $result = $model->laporan();
+                            $result = $model->transaksi();
                             if (!empty($result)) {
                                 foreach ($result as $data) : ?>
                                     <tr>
                                         <th scope="row"><?= $index++ ?></th>
-                                        <td><?= $data->id_transaksi ?></td>
-                                        <td><?= $data->id_paket ?></td>
-                                        <td><?= $data->qty ?></td>
+                                        <td><?= $data->id_outlet ?></td>
+                                        <td><?= $data->kode_invoice ?></td>
+                                        <td><?= $data->batas_waktu ?></td>
+                                        <td><?= $data->tanggal_bayar ?></td>
                                         <td>
-
-                                            <a href="printlaporan.php?id=<?= $data->id ?>" class="btn btn-dark">Print</a>
-                                            <form action="../../../controller/process.php?id=<?= $data->id ?>" method="post" class="mt-5 d-inline">
-                                                <button type="submit_deletelaporan" class="btn btn-danger" name="submit_deletelaporan" onclick="return confirm('Apakah anda yakin?')">Hapus</button>
-                                            </form>
+                                            <a href="../../../view/admin/transaksi/edittransaksi.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
+                                            <a href="../../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach;

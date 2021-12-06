@@ -97,7 +97,9 @@ $index = 1;
                                         <td><?= $data->tanggal_bayar ?></td>
                                         <td>
                                             <a href="../../../view/admin/transaksi/edittransaksi.php?id=<?= $data->id ?>" class="btn btn-primary">Ubah</a>
-                                            <a href="../../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
+                                            <form action="../../../controller/process.php?id=<?= $data->id ?>" method="post" class="mt-5 d-inline">
+                                                <button type="submit_deletetransaksi" class="btn btn-danger" name="submit_deletetransaksi" onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php endforeach;

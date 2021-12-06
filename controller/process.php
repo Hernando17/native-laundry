@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../connection.php';
 include 'model.php';
 
@@ -22,7 +23,7 @@ if (isset($_POST['submit_edit'])) {
     header('location:../view/admin/outlet/index.php');
 }
 
-if (isset($_GET['id'])) {
+if (isset($_POST['submit_deleteoutlet'])) {
     $id = $_GET['id'];
     $model = new Model();
     $model->delete($id);
@@ -51,7 +52,7 @@ if (isset($_POST['submit_editpaket'])) {
     header('location:../view/admin/paket/index.php');
 }
 
-if (isset($_GET['id'])) {
+if (isset($_POST['submit_deletepaket'])) {
     $id = $_GET['id'];
     $model = new Model();
     $model->delete_paket($id);
@@ -82,7 +83,7 @@ if (isset($_POST['submit_editpengguna'])) {
     header('location:../view/admin/pengguna/index.php');
 }
 
-if (isset($_GET['id'])) {
+if (isset($_POST['submit_deletepengguna'])) {
     $id = $_GET['id'];
     $model = new Model();
     $model->delete_pengguna($id);
@@ -97,14 +98,22 @@ if (isset($_POST['submit_member'])) {
     $telepon = $_POST['telepon'];
     $model = new Model();
     $model->insert_member($nama, $alamat, $jenis_kelamin, $telepon);
-    header('location:../view/admin/member/index.php');
+    if ($_SESSION['role'] == "admin") {
+        header('location:../view/admin/member/index.php');
+    } else if ($_SESSION['role'] == "kasir") {
+        header('location:../view/kasir/member/index.php');
+    }
 }
 
-if (isset($_GET['id'])) {
+if (isset($_POST['submit_deletemember'])) {
     $id = $_GET['id'];
     $model = new Model();
     $model->delete_member($id);
-    header('location:../view/admin/member/index.php');
+    if ($_SESSION['role'] == "admin") {
+        header('location:../view/admin/member/index.php');
+    } else if ($_SESSION['role'] == "kasir") {
+        header('location:../view/kasir/member/index.php');
+    }
 }
 
 // Transaksi
@@ -123,7 +132,11 @@ if (isset($_POST['submit_transaksi'])) {
     $id_user = $_POST['id_user'];
     $model = new Model();
     $model->insert_transaksi($id_outlet, $kode_invoice, $id_member, $tanggal, $batas_waktu, $tanggal_bayar, $biaya_tambahan, $diskon, $pajak, $status, $dibayar, $id_user);
-    header('location:../view/admin/transaksi/index.php');
+    if ($_SESSION['role'] == "admin") {
+        header('location:../view/admin/transaksi/index.php');
+    } else if ($_SESSION['role'] == "kasir") {
+        header('location:../view/kasir/transaksi/index.php');
+    }
 }
 
 if (isset($_POST['submit_edittransaksi'])) {
@@ -142,14 +155,22 @@ if (isset($_POST['submit_edittransaksi'])) {
     $id_user = $_POST['id_user'];
     $model = new Model();
     $model->update_transaksi($id, $id_outlet, $kode_invoice, $id_member, $tanggal, $batas_waktu, $tanggal_bayar, $biaya_tambahan, $diskon, $pajak, $status, $dibayar, $id_user);
-    header('location:../view/admin/transaksi/index.php');
+    if ($_SESSION['role'] == "admin") {
+        header('location:../view/admin/transaksi/index.php');
+    } else if ($_SESSION['role'] == "kasir") {
+        header('location:../view/kasir/transaksi/index.php');
+    }
 }
 
-if (isset($_GET['id'])) {
+if (isset($_POST['delete_deletetransaksi'])) {
     $id = $_GET['id'];
     $model = new Model();
     $model->delete_transaksi($id);
-    header('location:../view/admin/transaksi/index.php');
+    if ($_SESSION['role'] == "admin") {
+        header('location:../view/admin/transaksi/index.php');
+    } else if ($_SESSION['role'] == "kasir") {
+        header('location:../view/kasir/transaksi/index.php');
+    }
 }
 
 // Laporan
@@ -160,12 +181,20 @@ if (isset($_POST['submit_laporan'])) {
     $keterangan = $_POST['keterangan'];
     $model = new Model();
     $model->insert_laporan($id_transaksi, $id_paket, $qty, $keterangan);
-    header('location:../view/admin/laporan/index.php');
+    if ($_SESSION['role'] == "admin") {
+        header('location:../view/admin/laporan/index.php');
+    } else if ($_SESSION['role'] == "kasir") {
+        header('location:../view/kasir/laporan/index.php');
+    }
 }
 
-if (isset($_GET['id'])) {
+if (isset($_POST['submit_deletelaporan'])) {
     $id = $_GET['id'];
     $model = new Model();
     $model->delete_laporan($id);
-    header('location:../view/admin/laporan/index.php');
+    if ($_SESSION['role'] == "admin") {
+        header('location:../view/admin/laporan/index.php');
+    } else if ($_SESSION['role'] == "kasir") {
+        header('location:../view/kasir/laporan/index.php');
+    }
 }

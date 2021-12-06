@@ -96,7 +96,9 @@ $index = 1;
                                         <td><?= $data->jenis_kelamin ?></td>
                                         <td><?= $data->telepon ?></td>
                                         <td>
-                                            <a href="../../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
+                                            <form action="../../../controller/process.php?id=<?= $data->id ?>" method="post" class="mt-5 d-inline">
+                                                <button type="submit_deletemember" class="btn btn-danger" name="submit_deletemember" onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php endforeach;

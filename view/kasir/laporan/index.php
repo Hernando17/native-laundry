@@ -2,7 +2,7 @@
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
-if ($_SESSION['role'] != "admin") {
+if ($_SESSION['role'] != "kasir") {
     header("location:index.php?pesan=gagal");
 }
 require '../../../connection.php';
@@ -32,16 +32,7 @@ $index = 1;
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../../view/admin/halaman_admin.php">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../outlet/index.php">Outlet</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../paket/index.php">Paket</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../pengguna/index.php">Pengguna</a>
+                        <a class="nav-link active" aria-current="page" href="../halaman_kasir.php">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../member/index.php">Pelanggan</a>
@@ -96,9 +87,7 @@ $index = 1;
                                         <td>
 
                                             <a href="printlaporan.php?id=<?= $data->id ?>" class="btn btn-dark">Print</a>
-                                            <form action="../../../controller/process.php?id=<?= $data->id ?>" method="post" class="mt-5 d-inline">
-                                                <button type="submit_deletelaporan" class="btn btn-danger" name="submit_deletelaporan" onclick="return confirm('Apakah anda yakin?')">Hapus</button>
-                                            </form>
+                                            <a href="../../../controller/process.php?id=<?= $data->id ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach;
