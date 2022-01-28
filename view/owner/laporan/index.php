@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-// cek apakah yang mengakses halaman ini sudah login
 if ($_SESSION['role'] != "owner") {
-    header("location:index.php?pesan=gagal");
+    header("location:#");
 }
-require '../../../connection.php';
-include '../../../controller/model.php';
+
+require '../../../core/init.php';
+
 $model = new Model();
 $index = 1;
 ?>
@@ -19,44 +19,33 @@ $index = 1;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry | Data Laporan</title>
-    <link rel="stylesheet" href="../../../public/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Laundry</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../halaman_owner.php">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../laporan/index.php">Laporan</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php
+    require "../templates/navbar.php";
+    ?>
     <div class="container" style="margin-top:50px; width:100%;">
         <div class="card" style="
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius:10px;
         margin:30px auto;
         ">
+            <form action="../../../core/controller.php" method="get">
+                <input type="text" class="form-control" name="search_l" />
+                <button type="submit" class="btn btn-dark" name="search_laporan">cari</button>
+            </form>
             <div class="container">
                 <div class="card" style="
         border-radius:10px;
         margin:20px auto;
-        margin-top:50px;
         width:98%;
         ">
                     <table class="table" style="
             width:95%;
             margin:40px auto;
+
             ">
                         <thead>
                             <tr>
@@ -78,7 +67,11 @@ $index = 1;
                                         <td><?= $data->id_paket ?></td>
                                         <td><?= $data->qty ?></td>
                                         <td>
+
                                             <a href="printlaporan.php?id=<?= $data->id ?>" class="btn btn-dark">Print</a>
+                                            <form action="../../../core/controller.php?id=<?= $data->id ?>" method="post" class="mt-5 d-inline">
+                                                <button type="submit" class="btn btn-danger" name="delete_laporan" onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php endforeach;
@@ -94,5 +87,8 @@ $index = 1;
         </div>
     </div>
 </body>
+<footer>
+    <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+</footer>
 
 </html>

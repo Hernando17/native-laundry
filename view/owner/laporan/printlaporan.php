@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-// cek apakah yang mengakses halaman ini sudah login
 if ($_SESSION['role'] != "owner") {
-    header("location:index.php?pesan=gagal");
+    header("location:#");
 }
+
 $id = $_GET['id'];
-require '../../../connection.php';
-include '../../../controller/model.php';
+require '../../../core/init.php';
 $model = new Model();
 $data = $model->printlaporan($id);
 $index = 1;
@@ -21,30 +20,35 @@ $index = 1;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laporan</title>
-    <link rel="stylesheet" href="../../../public/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="judul">LAUNDRY CUCI BERSIH</h1>
-        <hr>
-        <h2 class="judul">LAPORAN</h2>
-        <br>
-        <table class="panjang">
+
+    <h1>LAUNDRY CUCI BERSIH</h1>
+    <hr>
+    <h2>LAPORAN</h2>
+    <br>
+
+    <table class="table-bordered" style="width:100%">
+        <thead>
             <tr>
                 <th>ID Transaksi</th>
                 <th>ID Paket</th>
                 <th>Qty</th>
                 <th>Keterangan</th>
             </tr>
+        </thead>
+        <tbody>
             <tr>
                 <td><?= $data->id_transaksi ?></td>
                 <td><?= $data->id_paket ?></td>
                 <td><?= $data->qty ?></td>
                 <td><?= $data->keterangan ?></td>
             </tr>
-        </table>
-    </div>
+        </tbody>
+    </table>
+
 </body>
 <footer>
     <script>
